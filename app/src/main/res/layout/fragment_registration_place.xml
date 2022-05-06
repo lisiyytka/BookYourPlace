@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/text_36sp_bold_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginVertical="@dimen/indent_20"
+        android:gravity="center"
+        android:text="@string/registration_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ru.lisiyytka.bookyourplace.presentation.customView.Field
+        android:id="@+id/phone_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/indent_25"
+        app:hint="@string/phone_number"
+        app:label="@string/phone_number"
+        app:input_type="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"/>
+
+    <ru.lisiyytka.bookyourplace.presentation.customView.Field
+        android:id="@+id/password_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/indent_10"
+        app:hint="@string/password"
+        app:label="@string/password"
+        app:input_type="password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_field"/>
+
+    <TextView
+        android:id="@+id/text1"
+        style="@style/text_20sp_regular_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginTop="@dimen/indent_10"
+        android:text="@string/confirm_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_field"/>
+
+    <FrameLayout
+        android:id="@+id/code_block"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginTop="@dimen/indent_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text1">
+
+        <EditText
+            android:id="@+id/code_field"
+            style="@style/text_24sp_medium_white"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:paddingHorizontal="@dimen/indent_20"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:background="@drawable/bg_btn_with_selector"/>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            style="@style/text_24sp_medium_white"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:paddingHorizontal="@dimen/indent_15"
+            android:layout_gravity="center_vertical|end"
+            android:background="@drawable/bg_btn_with_selector"
+            android:text="@string/confirm"
+            android:textAllCaps="false"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text2"
+        style="@style/text_20sp_regular_white"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginTop="@dimen/indent_10"
+        android:text="@string/instruction"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/code_block"/>
+
+    <TextView
+        android:id="@+id/seconds"
+        style="@style/text_20sp_bold_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:text="30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text2"/>
+
+    <TextView
+        android:id="@+id/seconds_text"
+        style="@style/text_20sp_regular_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_5"
+        android:text="@string/sec"
+        app:layout_constraintStart_toEndOf="@id/seconds"
+        app:layout_constraintTop_toBottomOf="@id/text2"/>
+
+
+    <Button
+        android:id="@+id/next"
+        style="@style/text_20sp_semibold_dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginVertical="@dimen/indent_20"
+        android:text="@string/registration_end"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

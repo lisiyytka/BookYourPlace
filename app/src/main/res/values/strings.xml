@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">BookYourPlace</string>
+
+    <string name="search">Поиск</string>
+    <string name="filters">Фильтры</string>
+
+    <string name="ruble">₽</string>
+
+    <string name="restaurant">Ресторан</string>
+    <string name="bar">Бар</string>
+    <string name="lounge">Лаундж</string>
+    <string name="hookah">Кальянная</string>
+    <string name="anti_cafe">Антикафе</string>
+    <string name="cafe">Кафе</string>
+
+    <string-array name="places">
+        <item>Ресторан</item>
+        <item>Бар</item>
+        <item>Лаундж</item>
+        <item>Кальянная</item>
+        <item>Антикафе</item>
+        <item>Кафе</item>
+    </string-array>
+
+    <string name="booking">Забронировать столик</string>
+    <string name="table">Столик</string>
+
+    <string name="title_greetings">Привет, </string>
+
+    <string name="acc_info">Мои данные</string>
+    <string name="fav_places">Любимые места</string>
+    <string name="bookings">Мои бронирования</string>
+
+    <string name="logout">Выйти</string>
+    <string name="login">Войти</string>
+    <string name="save">Сохранить</string>
+    <string name="or">Или</string>
+    <string name="registration">Зарегистрироваться</string>
+    <string name="registration_end">Регистрация</string>
+
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="phone_number">Телефон</string>
+    <string name="mail">E-mail</string>
+    <string name="password">Пароль</string>
+    <string name="name_of_place">Название заведения</string>
+    <string name="address">Адрес</string>
+    <string name="phone_numbers">Номера телефонов, которые будут видеть пользователи приложения</string>
+    <string name="schedule">График работы заведения</string>
+    <string name="average_check">Средний чек</string>
+    <string name="image_of_place">Загрузите фото вашего заведения</string>
+    <string name="choose_image">Выбрать фото</string>
+    <string name="confirm_message">Подтвердите ваш номер телефона</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="instruction">Вы можете повторно запросить код, через </string>
+    <string name="sec">секунд</string>
+    <string name="info">Информация о вашем заведении</string>
+
+    <string name="add_table">Добавить столик</string>
+</resources>

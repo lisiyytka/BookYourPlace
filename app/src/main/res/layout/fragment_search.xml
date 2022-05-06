@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/dark_blue">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <EditText
+            android:id="@+id/search_field"
+            style="@style/text_24sp_medium_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="18dp"
+            android:backgroundTint="@color/green"
+            android:hint="@string/search"
+            android:paddingEnd="40dp"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="@color/white"
+            android:textCursorDrawable="@drawable/cursor_white" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginHorizontal="@dimen/indent_20"
+            android:src="@drawable/ic_search_green" />
+    </FrameLayout>
+    
+    <FrameLayout
+        android:id="@+id/filters_btn"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:background="@drawable/bg_filters">
+
+        <TextView
+            style="@style/text_20sp_medium_dark"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|start"
+            android:paddingHorizontal="@dimen/indent_10"
+            android:text="@string/filters"/>
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/selector_filters_arrow"
+            android:layout_gravity="end"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/filters_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:orientation="vertical"
+        android:background="@drawable/bg_filters_block"
+        android:visibility="gone">
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/place_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_10"
+        android:layout_marginTop="@dimen/indent_10"
+        android:orientation="vertical"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/item_place_list"/>
+
+</LinearLayout>

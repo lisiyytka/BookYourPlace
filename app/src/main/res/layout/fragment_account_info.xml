@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue">
+
+    <include
+        android:id="@+id/topbar"
+        layout="@layout/topbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ru.lisiyytka.bookyourplace.presentation.customView.Field
+        android:id="@+id/phone_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/indent_25"
+        app:hint="@string/phone_number"
+        app:input_type="phone"
+        app:label="@string/phone_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topbar" />
+
+    <ru.lisiyytka.bookyourplace.presentation.customView.Field
+        android:id="@+id/name_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/indent_10"
+        app:hint="@string/name"
+        app:input_type="text"
+        app:label="@string/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_field" />
+
+    <ru.lisiyytka.bookyourplace.presentation.customView.Field
+        android:id="@+id/surname_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/indent_10"
+        app:hint="@string/surname"
+        app:input_type="date"
+        app:label="@string/surname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_field" />
+
+    <ru.lisiyytka.bookyourplace.presentation.customView.Field
+        android:id="@+id/password_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/indent_10"
+        app:hint="@string/password"
+        app:input_type="password"
+        app:label="@string/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/surname_field" />
+
+    <Button
+        android:id="@+id/save"
+        style="@style/text_24sp_medium_green"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginVertical="80dp"
+        android:background="@drawable/bg_btn_with_selector"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/password_field"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

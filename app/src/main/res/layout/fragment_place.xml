@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dark_blue">
+
+    <FrameLayout
+        android:id="@+id/top_frame"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/example1"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:scaleType="centerCrop"
+            android:src="@drawable/top_main" />
+
+        <TextView
+            android:id="@+id/name_of_place"
+            style="@style/text_24sp_bold_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="30dp"
+            android:layout_marginHorizontal="@dimen/indent_20"
+            android:layout_gravity="bottom"
+            android:maxLines="2"
+            android:text="Своя компания"/>
+
+        <ImageButton
+            android:id="@+id/btn_save_place"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/indent_15"
+            android:src="@drawable/selector_bookmark"
+            android:background="?android:selectableItemBackground"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/second_frame"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginVertical="@dimen/indent_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_frame">
+
+        <TextView
+            android:id="@+id/category_place"
+            style="@style/text_16sp_white_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/restaurant"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginHorizontal="@dimen/indent_5"
+            android:src="@drawable/ic_location_green"/>
+        <TextView
+            android:id="@+id/location"
+            style="@style/text_16sp_white_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="ул. Малышева, 44"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/third_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginVertical="@dimen/indent_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/second_frame">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="@dimen/indent_5"
+            android:src="@drawable/ic_time_green"/>
+        <TextView
+            android:id="@+id/schedule"
+            style="@style/text_13sp_white_semibold"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="пн-чт 12:00–23:00 пт,сб 12:00–00:00 вс 12:00–23:00"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginHorizontal="@dimen/indent_5"
+            android:src="@drawable/ic_phone_green"/>
+        <TextView
+            android:id="@+id/phone_numbers"
+            style="@style/text_13sp_white_semibold"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:text="+7 (343) 382-61-41 +7 (343) 298-00-44"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_booking"
+        style="@style/text_24sp_medium_dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginVertical="@dimen/indent_20"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_btn"
+        android:text="@string/booking"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/third_frame"/>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="400dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_booking"/>
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/topbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
