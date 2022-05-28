@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "143703776770",
+    "firebase_url": "https://bookyourplace-b2532-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "bookyourplace-b2532",
+    "storage_bucket": "bookyourplace-b2532.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143703776770:android:fbcc1ccc4d9bc06692511b",
+        "android_client_info": {
+          "package_name": "ru.lisiyytka.bookyourplace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143703776770-k3378121jd30c95uu81p9uo7fdd1udhj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.lisiyytka.bookyourplace",
+            "certificate_hash": "fb524ddb65b77cff7ac440afcc0df0ce46224c17"
+          }
+        },
+        {
+          "client_id": "143703776770-brv8bk8f7r29t5mn59v7q0lng4nt1ati.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiYlGUBAvDoWKiVRe6pwshtMKucdDFM8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143703776770-brv8bk8f7r29t5mn59v7q0lng4nt1ati.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
