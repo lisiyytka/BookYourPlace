@@ -14,7 +14,7 @@ import ru.lisiyytka.bookyourplace.presentation.presenters.AccountInfoPresenter
 import ru.lisiyytka.bookyourplace.presentation.presenters.AccountPresenter
 import toothpick.Toothpick
 
-class AccountInfoFragmentFragment : MvpAppCompatFragment(), AccountInfoView {
+class AccountInfoFragment : MvpAppCompatFragment(), AccountInfoView {
     @InjectPresenter
     lateinit var accountInfoPresenter: AccountInfoPresenter
 

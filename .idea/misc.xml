@@ -51,6 +51,34 @@
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/layout/item_tables_list.xml" value="0.24547101449275363" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/layout/topbar.xml" value="0.24547101449275363" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/layout/view_field.xml" value="0.24728260869565216" />
+        <entry key="app/src/main/res/drawable/bg_bottom_nav_item.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/bg_btn.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/bg_btn_with_selector.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/bg_filters.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/bg_filters_block.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/bg_gradient.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/bg_registration_btn_change.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/bg_spinner.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/divider_black.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/line_white.xml" value="0.156" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/bottom_navigation_user.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_account_info.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_favourite_places.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_map.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_place.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_place_account.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_registration_info_about_place.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_registration_place.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_role_selection.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_tables.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/item_tables_list.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/topbar.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/view_field.xml" value="0.2947916666666667" />
       </map>
     </option>
   </component>

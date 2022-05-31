@@ -51,7 +51,12 @@
     <string name="image_of_place">Загрузите фото вашего заведения</string>
     <string name="choose_image">Выбрать фото</string>
     <string name="confirm_message">Подтвердите ваш номер телефона</string>
+    <string name="who_are_you">А кто ты?</string>
+    <string name="smile">=)</string>
+    <string name="textOr">или</string>
     <string name="confirm">Подтвердить</string>
+    <string name="registration_how_user">Зарегистрироваться, как пользователь</string>
+    <string name="registration_how_owner">Зарегистрировать, своё заведение</string>
     <string name="instruction">Вы можете повторно запросить код, через </string>
     <string name="sec">секунд</string>
     <string name="info">Информация о вашем заведении</string>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/text_36sp_bold_black"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginVertical="@dimen/indent_20"
+        android:gravity="center"
+        android:text="@string/registration_end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text1"
+        style="@style/text_20sp_regular_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginTop="@dimen/indent_75"
+        android:text="@string/who_are_you"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"/>
+
+    <TextView
+        android:id="@+id/textSmile"
+        style="@style/text_20sp_regular_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginTop="@dimen/indent_10"
+        android:text="@string/smile"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text1"/>
+
+    <View
+        android:id="@+id/dividerFirst"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/indent_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/indent_15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textSmile"
+        android:background="@drawable/divider_black"/>
+
+    <FrameLayout
+        android:id="@+id/button_how_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dividerFirst">
+
+        <Button
+            android:id="@+id/btn_user"
+            android:padding="@dimen/indent_10"
+            style="@style/text_24sp_medium_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/indent_15"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_registration_btn_change"
+            android:text="@string/registration_how_user"
+            android:textAllCaps="false"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textOr"
+        style="@style/text_20sp_regular_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginTop="@dimen/indent_25"
+        android:text="@string/textOr"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_how_user"/>
+
+    <View
+        android:id="@+id/dividerSecond"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/indent_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/indent_15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textOr"
+        android:background="@drawable/divider_black"/>
+
+    <FrameLayout
+        android:id="@+id/button_how_owner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dividerSecond">
+
+        <Button
+            android:id="@+id/btn_owner"
+            android:padding="@dimen/indent_10"
+            style="@style/text_24sp_medium_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/indent_15"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_registration_btn_change"
+            android:text="@string/registration_how_owner"
+            android:textAllCaps="false"/>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

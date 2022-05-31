@@ -14,7 +14,7 @@ import ru.lisiyytka.bookyourplace.presentation.presenters.MapPresenter
 import ru.lisiyytka.bookyourplace.presentation.view.login.LoginView
 import toothpick.Toothpick
 
-class MapFragment : MvpAppCompatFragment(), LoginView {
+class MapFragment : MvpAppCompatFragment(), MapView {
     @InjectPresenter
     lateinit var mapPresenter: MapPresenter
 

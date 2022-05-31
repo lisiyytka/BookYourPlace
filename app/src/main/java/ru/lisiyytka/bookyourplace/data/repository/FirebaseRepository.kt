@@ -5,6 +5,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
 import ru.lisiyytka.bookyourplace.domain.modelsForFirebase.PlaceFirebaseEntity
+import ru.lisiyytka.bookyourplace.domain.modelsForFirebase.TableFirebaseEntity
 import ru.lisiyytka.bookyourplace.domain.modelsForFirebase.UserFirebaseEntity
 import ru.lisiyytka.bookyourplace.utils.Constants.NODE_FAVORITE_PLACES
 import ru.lisiyytka.bookyourplace.utils.Constants.NODE_PLACE
@@ -86,4 +87,8 @@ class FirebaseRepository {
             .setValue(placeFirebaseEntity)
     }
 
+    fun saveTableInPlace(idPlace: String, tableFirebaseEntity: TableFirebaseEntity) {
+        REF_DATABASE_ROOT.child(NODE_PLACE).child(idPlace).child(NODE_TABLES).child(tableFirebaseEntity.id)
+            .setValue(tableFirebaseEntity)
+    }
 }
