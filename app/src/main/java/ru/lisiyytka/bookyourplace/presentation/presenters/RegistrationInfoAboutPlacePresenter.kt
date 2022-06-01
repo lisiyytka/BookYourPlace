@@ -4,8 +4,9 @@ import moxy.InjectViewState
 import moxy.MvpPresenter
 import ru.lisiyytka.bookyourplace.presentation.view.placeAccount.PlaceAccountView
 import ru.lisiyytka.bookyourplace.presentation.view.registrationInfoAboutPlace.RegistrationAboutPlaceView
+import javax.inject.Inject
 
 
 @InjectViewState
-class RegistrationInfoAboutPlacePresenter : MvpPresenter<RegistrationAboutPlaceView>() {
+class RegistrationInfoAboutPlacePresenter @Inject constructor() : MvpPresenter<RegistrationAboutPlaceView>() {
 }

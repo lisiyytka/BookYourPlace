@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:paddingBottom="50dp"
     android:background="@color/dark_blue">
 
     <FrameLayout

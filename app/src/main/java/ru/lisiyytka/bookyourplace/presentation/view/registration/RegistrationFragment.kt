@@ -7,17 +7,13 @@ import android.view.ViewGroup
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
-import ru.lisiyytka.bookyourplace.databinding.FragmentPlaceAccountBinding
 import ru.lisiyytka.bookyourplace.databinding.FragmentRegistrationBinding
-import ru.lisiyytka.bookyourplace.databinding.FragmentRoleSelectionBinding
 import ru.lisiyytka.bookyourplace.di.Scopes
-import ru.lisiyytka.bookyourplace.presentation.presenters.PlaceAccountPresenter
 import ru.lisiyytka.bookyourplace.presentation.presenters.RegistrationPresenter
-import ru.lisiyytka.bookyourplace.presentation.presenters.RoleSelectionPresenter
-import ru.lisiyytka.bookyourplace.presentation.view.roleSelection.RoleSelectionFragment
 import toothpick.Toothpick
 
 class RegistrationFragment : MvpAppCompatFragment(), RegistrationView {
+
     @InjectPresenter
     lateinit var registrationPresenter: RegistrationPresenter
 

@@ -7,12 +7,9 @@ import android.view.ViewGroup
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
-import ru.lisiyytka.bookyourplace.databinding.FragmentAccountBinding
 import ru.lisiyytka.bookyourplace.databinding.FragmentLoginBinding
 import ru.lisiyytka.bookyourplace.di.Scopes
-import ru.lisiyytka.bookyourplace.presentation.presenters.AccountPresenter
 import ru.lisiyytka.bookyourplace.presentation.presenters.LoginPresenter
-import ru.lisiyytka.bookyourplace.presentation.view.account.AccountView
 import toothpick.Toothpick
 
 class LoginFragment : MvpAppCompatFragment(), LoginView {
@@ -32,6 +29,10 @@ class LoginFragment : MvpAppCompatFragment(), LoginView {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+
+        binding.loginBtn.setOnClickListener {
+            loginPresenter.onLoginButtonClick()
+        }
 
         return binding.root
     }

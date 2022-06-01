@@ -7,11 +7,9 @@ import android.view.ViewGroup
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
-import ru.lisiyytka.bookyourplace.databinding.FragmentAccountBinding
 import ru.lisiyytka.bookyourplace.databinding.FragmentAccountInfoBinding
 import ru.lisiyytka.bookyourplace.di.Scopes
 import ru.lisiyytka.bookyourplace.presentation.presenters.AccountInfoPresenter
-import ru.lisiyytka.bookyourplace.presentation.presenters.AccountPresenter
 import toothpick.Toothpick
 
 class AccountInfoFragment : MvpAppCompatFragment(), AccountInfoView {

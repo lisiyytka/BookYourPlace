@@ -11,12 +11,11 @@ import ru.lisiyytka.bookyourplace.databinding.FragmentRegistrationBinding
 import ru.lisiyytka.bookyourplace.di.Scopes
 import ru.lisiyytka.bookyourplace.presentation.presenters.RegistrationPresenter
 import ru.lisiyytka.bookyourplace.presentation.presenters.RoleSelectionPresenter
-import ru.lisiyytka.bookyourplace.presentation.view.registration.RegistrationView
 import toothpick.Toothpick
 
-class RoleSelectionFragment : MvpAppCompatFragment(), RoleSelectionView{
+class RoleSelectionFragment : MvpAppCompatFragment(), RoleSelectionView {
     @InjectPresenter
-    lateinit var registrationPresenter: RegistrationPresenter
+    lateinit var roleSelectionPresenter: RoleSelectionPresenter
 
     @ProvidePresenter
     fun providePresenter() =

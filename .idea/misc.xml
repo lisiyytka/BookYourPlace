@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.17300724637681159" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/drawable-v24/ic_map_dark.xml" value="0.12037037037037036" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/drawable/bg_bottom_nav_item.xml" value="0.12037037037037036" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/drawable/bg_btn.xml" value="0.1398148148148148" />
@@ -62,12 +63,12 @@
         <entry key="app/src/main/res/drawable/divider_black.xml" value="0.156" />
         <entry key="app/src/main/res/drawable/line_white.xml" value="0.156" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2947916666666667" />
-        <entry key="app/src/main/res/layout/bottom_navigation_user.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/bottom_navigation_user.xml" value="0.3376205444335938" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_account_info.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_favourite_places.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2947916666666667" />
-        <entry key="app/src/main/res/layout/fragment_map.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_map.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_place.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_place_account.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.2947916666666667" />

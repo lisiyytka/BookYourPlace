@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
+import ru.lisiyytka.bookyourplace.R
 import ru.lisiyytka.bookyourplace.databinding.FragmentRegistrationBinding
 import ru.lisiyytka.bookyourplace.databinding.FragmentSearchBinding
 import ru.lisiyytka.bookyourplace.di.Scopes

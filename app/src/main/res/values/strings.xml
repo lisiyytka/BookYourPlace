@@ -60,6 +60,6 @@
     <string name="instruction">Вы можете повторно запросить код, через </string>
     <string name="sec">секунд</string>
     <string name="info">Информация о вашем заведении</string>
-
     <string name="add_table">Добавить столик</string>
+    <string name="google_maps_key">AIzaSyDpRjSVZbv8xgiqRCNlSr_QP60b2HvKTLg</string>
 </resources>

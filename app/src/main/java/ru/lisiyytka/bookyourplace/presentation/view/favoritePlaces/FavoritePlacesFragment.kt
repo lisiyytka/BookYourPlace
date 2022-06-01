@@ -7,19 +7,18 @@ import android.view.ViewGroup
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
-import ru.lisiyytka.bookyourplace.databinding.FragmentAccountBinding
 import ru.lisiyytka.bookyourplace.databinding.FragmentFavouritePlacesBinding
 import ru.lisiyytka.bookyourplace.di.Scopes
-import ru.lisiyytka.bookyourplace.presentation.presenters.AccountPresenter
+import ru.lisiyytka.bookyourplace.presentation.presenters.FavoritePlacesPresenter
 import toothpick.Toothpick
 
 class FavoritePlacesFragment : MvpAppCompatFragment(), FavoritePlacesView {
     @InjectPresenter
-    lateinit var accountPresenter: AccountPresenter
+    lateinit var favoritePlacesPresenter: FavoritePlacesPresenter
 
     @ProvidePresenter
     fun providePresenter() =
-        Toothpick.openScope(Scopes.APP_SCOPE).getInstance(AccountPresenter::class.java)
+        Toothpick.openScope(Scopes.APP_SCOPE).getInstance(FavoritePlacesPresenter::class.java)
 
     private var _binding: FragmentFavouritePlacesBinding? = null
     private val binding get() = _binding!!
