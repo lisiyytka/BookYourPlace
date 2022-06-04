@@ -9,13 +9,14 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
 import ru.lisiyytka.bookyourplace.R
+import ru.lisiyytka.bookyourplace.utils.AppTextWatcher
 
 @SuppressLint("CustomViewStyleable")
 class Field @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : FrameLayout(context, attrs, defStyleAttr){
+) : FrameLayout(context, attrs, defStyleAttr) {
 
     init {
         inflate(context, R.layout.view_field, this)
@@ -29,10 +30,11 @@ class Field @JvmOverloads constructor(
             val labelField = findViewById<TextView>(R.id.field_name)
             val field = findViewById<EditText>(R.id.field)
 
+
             labelField.text = label
             field.hint = hint
 
-            when (inputType){
+            when (inputType) {
                 "text" ->
                     field.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_NORMAL
                 "date" ->
@@ -49,7 +51,7 @@ class Field @JvmOverloads constructor(
 
             if (field.text.isNotEmpty()) {
                 labelField.visibility = View.VISIBLE
-            }else{
+            } else {
                 labelField.visibility = View.GONE
             }
 
@@ -57,13 +59,13 @@ class Field @JvmOverloads constructor(
         }
     }
 
-    fun getText(): String{
+    fun getText(): String {
         val field = findViewById<EditText>(R.id.field)
         return field.text.toString()
     }
 
-    fun setText(text: String){
+    fun setText(text: String) {
         val field = findViewById<EditText>(R.id.field)
-       field.setText(text)
+        field.setText(text)
     }
 }

@@ -32,7 +32,9 @@
     <string name="bookings">Мои бронирования</string>
 
     <string name="logout">Выйти</string>
-    <string name="login">Войти</string>
+    <string name="repeat_send_code">Отправить код повторно</string>
+    <string name="confirm_phone_number">Подтвердить</string>
+    <string name="info_about_login">Для входа, введите код, который поступит вам на телефон, в ближайшее время.</string>
     <string name="save">Сохранить</string>
     <string name="or">Или</string>
     <string name="registration">Зарегистрироваться</string>
@@ -41,8 +43,11 @@
     <string name="name">Имя</string>
     <string name="surname">Фамилия</string>
     <string name="phone_number">Телефон</string>
-    <string name="mail">E-mail</string>
+    <string name="hint_phone_number">Введите номер телефона</string>
     <string name="password">Пароль</string>
+    <string name="mail">E-mail</string>
+    <string name="verifier_code">Код подтверждения</string>
+    <string name="hint_verifier_code">Введите код подтверждения</string>
     <string name="name_of_place">Название заведения</string>
     <string name="address">Адрес</string>
     <string name="phone_numbers">Номера телефонов, которые будут видеть пользователи приложения</string>

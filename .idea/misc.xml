@@ -67,7 +67,7 @@
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_account_info.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_favourite_places.xml" value="0.2947916666666667" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_map.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_place.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_place_account.xml" value="0.2947916666666667" />
