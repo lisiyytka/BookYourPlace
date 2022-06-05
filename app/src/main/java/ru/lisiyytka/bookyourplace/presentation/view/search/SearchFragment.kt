@@ -33,11 +33,6 @@ class SearchFragment : MvpAppCompatFragment(), SearchView {
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
-    lateinit var mAdapter: SearchAdapter
-    lateinit var singleChatRecyclerView: RecyclerView
-    private lateinit var mRefPlace: DatabaseReference
-    private lateinit var mSearchListener: AppValueEventListener
-    private var mListMessages = emptyList<PlaceFirebaseEntity>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,17 +46,12 @@ class SearchFragment : MvpAppCompatFragment(), SearchView {
     }
 
     private fun initRecyclerView() {
-
-        singleChatRecyclerView.layoutManager = LinearLayoutManager(context)
-        mAdapter = SearchAdapter()
-        singleChatRecyclerView.adapter = mAdapter
-        mRefPlace = REF_DATABASE_ROOT
-            .child(NODE_PLACE)
-        mSearchListener = AppValueEventListener { dataSnapshot ->
-            mListMessages = dataSnapshot.children.map { it.getValue(PlaceFirebaseEntity::class.java)!! }
-            mAdapter.setList(mListMessages)
-            singleChatRecyclerView.smoothScrollToPosition(mAdapter.itemCount)
-        }
-        mRefPlace.addValueEventListener(mSearchListener)
+        binding.placeList.layoutManager = LinearLayoutManager(requireContext())
+        REF_DATABASE_ROOT.child(NODE_PLACE).addValueEventListener(
+            AppValueEventListener{
+                val listResult = ArrayList(it.children.map { data -> data.getValue(PlaceFirebaseEntity::class.java)!!})
+                binding.placeList.adapter = SearchAdapter(listResult)
+            }
+        )
     }
 }
