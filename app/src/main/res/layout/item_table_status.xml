@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_marginBottom="@dimen/indent_15"
+    android:background="@color/white"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/indent_10"
+            android:layout_marginVertical="@dimen/indent_5">
+
+            <TextView
+                android:id="@+id/table_name"
+                style="@style/text_20sp_semibold_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Столик №1" />
+
+            <TextView
+                android:id="@+id/status_text"
+                style="@style/text_14sp_dark_semibold"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@drawable/bg_status"
+                android:gravity="center"
+                android:paddingVertical="@dimen/indent_5"
+                android:text="Нет гостей" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/guest_name"
+            style="@style/text_16sp_medium_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/indent_10"
+            android:text="Анастасия" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/indent_10"
+            android:layout_marginVertical="@dimen/indent_5"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_people_dark_blue" />
+
+            <TextView
+                android:id="@+id/number_of_people"
+                style="@style/text_16sp_medium_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/indent_5"
+                android:gravity="center"
+                android:text="2" />
+
+            <TextView
+                style="@style/text_16sp_medium_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="чел." />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginHorizontal="@dimen/indent_5"
+                android:src="@drawable/ic_phone_dark_blue" />
+
+            <TextView
+                android:id="@+id/guest_phone"
+                style="@style/text_16sp_medium_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/indent_5"
+                android:gravity="center"
+                android:text="+7 (800) 555-35-35" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.zjun.widget.TimeRuleView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        app:zjun_bgColor="@color/white"
+        app:zjun_indicatorLineColor="@color/pink"
+        app:trv_partHeight="10dp"
+        app:trv_partColor="@color/green"
+        app:trv_indicatorTriangleSideLen="1dp"/>
+
+</com.google.android.material.card.MaterialCardView>
