@@ -49,11 +49,13 @@ class Field @JvmOverloads constructor(
                     field.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_NORMAL
             }
 
-            if (field.text.isNotEmpty()) {
-                labelField.visibility = View.VISIBLE
-            } else {
-                labelField.visibility = View.GONE
-            }
+            field.addTextChangedListener(AppTextWatcher {
+                if (field.text.toString().isNotEmpty()) {
+                    labelField.visibility = View.VISIBLE
+                } else {
+                    labelField.visibility = View.GONE
+                }
+            })
 
             typedArray.recycle()
         }

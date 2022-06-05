@@ -91,4 +91,8 @@ class FirebaseRepository {
         REF_DATABASE_ROOT.child(NODE_PLACE).child(idPlace).child(NODE_TABLES).child(tableFirebaseEntity.id)
             .setValue(tableFirebaseEntity)
     }
+
+    fun savePlace(idPlace: String, tableFirebaseEntity: TableFirebaseEntity) {
+        REF_DATABASE_ROOT.child(NODE_PLACE).child(idPlace).setValue(tableFirebaseEntity)
+    }
 }

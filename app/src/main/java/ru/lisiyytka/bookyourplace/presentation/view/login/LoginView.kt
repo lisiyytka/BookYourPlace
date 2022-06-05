@@ -7,4 +7,5 @@ import moxy.viewstate.strategy.StateStrategyType
 @StateStrategyType(value = AddToEndStrategy::class)
 interface LoginView : MvpView {
     fun showToast(string: String)
+    fun stopLoadingAndShowFieldOfCode()
 }

@@ -32,6 +32,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo" />
 
+    <TextView
+        android:id="@+id/info_about_code"
+        style="@style/text_16sp_white_semibold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/indent_20"
+        android:layout_marginVertical="@dimen/indent_5"
+        android:text="@string/info_about_login"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/phone_number" />
+
     <EditText
         android:id="@+id/verifier_code"
         style="@style/text_20sp_regular_white"
@@ -44,23 +55,13 @@
         android:inputType="number"
         android:textColorHint="@color/white"
         android:textCursorDrawable="@drawable/cursor_white"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phone_number" />
-
-    <TextView
-        android:id="@+id/name_of_place"
-        style="@style/text_16sp_white_semibold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/indent_20"
-        android:layout_marginVertical="@dimen/indent_5"
-        android:text="@string/info_about_login"
-        app:layout_constraintTop_toBottomOf="@id/verifier_code" />
+        app:layout_constraintTop_toBottomOf="@id/info_about_code" />
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/resend_btn"
         style="@style/text_24sp_medium_white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,6 +75,29 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name_of_place" />
+        app:layout_constraintTop_toBottomOf="@id/verifier_code" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:background="@color/dark_blue"
+        android:visibility="gone">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            android:id="@+id/progress_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cpv_animAutostart="true"
+            app:cpv_color="@color/green"
+            app:cpv_indeterminate="true"
+            app:cpv_thickness="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,8 @@ package ru.lisiyytka.bookyourplace.utils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 object Constants {
     //For local database
@@ -29,11 +31,14 @@ object Constants {
     const val NODE_TABLES = "Tables"
     const val NODE_TIME_OF_RESERVE = "TimeOfReserve"
     const val NODE_FAVORITE_PLACES = "FavoritePlaces"
-
+    const val FOLDER_PLACE_IMAGE = "PlaceImage"
+    const val PHOTO_URL = "PhotoUrl"
+    //strings
+    const val STRING_EMPTY = ""
     //firebase database
     val AUTH: FirebaseAuth = FirebaseAuth.getInstance()
     val REF_DATABASE_ROOT: DatabaseReference =
         FirebaseDatabase.getInstance("https://bookyourplace-b2532-default-rtdb.europe-west1.firebasedatabase.app/").reference
-
+    val REF_STORAGE_ROOT: StorageReference = FirebaseStorage.getInstance("gs://bookyourplace-b2532.appspot.com").reference
 
 }

@@ -5,6 +5,7 @@ import ru.lisiyytka.bookyourplace.presentation.presenters.RegistrationInfoAboutP
 import ru.lisiyytka.bookyourplace.presentation.view.account.AccountFragment
 import ru.lisiyytka.bookyourplace.presentation.view.login.LoginFragment
 import ru.lisiyytka.bookyourplace.presentation.view.map.MapFragment
+import ru.lisiyytka.bookyourplace.presentation.view.place.PlaceFragment
 import ru.lisiyytka.bookyourplace.presentation.view.registration.RegistrationFragment
 import ru.lisiyytka.bookyourplace.presentation.view.registrationInfoAboutPlace.RegistrationInfoAboutPlaceFragment
 import ru.lisiyytka.bookyourplace.presentation.view.registrationPlace.RegistrationPlaceFragment
@@ -21,9 +22,7 @@ object Screens {
 
     fun RegistrationUser() = FragmentScreen { RegistrationFragment() }
 
-    fun RegistrationPlace() = FragmentScreen { RegistrationPlaceFragment() }
-
-    fun RegistrationInfoAboutPlace() = FragmentScreen { RegistrationInfoAboutPlaceFragment() }
+    fun RegistrationPlace() = FragmentScreen { RegistrationInfoAboutPlaceFragment() }
 
     //Main navigation by bottom bar
 
@@ -34,4 +33,7 @@ object Screens {
     fun Account() = FragmentScreen { AccountFragment() }
 
     //Search navigation
+
+    fun Place() = FragmentScreen{ PlaceFragment() }
+
 }

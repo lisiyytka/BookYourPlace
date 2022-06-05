@@ -52,6 +52,7 @@
     <string name="address">Адрес</string>
     <string name="phone_numbers">Номера телефонов, которые будут видеть пользователи приложения</string>
     <string name="schedule">График работы заведения</string>
+    <string name="cuisine">Кухня</string>
     <string name="average_check">Средний чек</string>
     <string name="image_of_place">Загрузите фото вашего заведения</string>
     <string name="choose_image">Выбрать фото</string>

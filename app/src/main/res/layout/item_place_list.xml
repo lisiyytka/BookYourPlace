@@ -56,7 +56,7 @@
 
                 <TextView
                     android:layout_weight="1"
-                    android:id="@+id/title_of_event"
+                    android:id="@+id/title_of_place"
                     style="@style/text_20sp_bold_white"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

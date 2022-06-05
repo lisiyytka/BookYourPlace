@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.gms.auth.api.Auth
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import ru.lisiyytka.bookyourplace.databinding.FragmentRegistrationBinding
 import ru.lisiyytka.bookyourplace.di.Scopes
 import ru.lisiyytka.bookyourplace.presentation.presenters.RegistrationPresenter
+import ru.lisiyytka.bookyourplace.utils.Constants.AUTH
 import toothpick.Toothpick
 
 class RegistrationFragment : MvpAppCompatFragment(), RegistrationView {
@@ -31,6 +33,16 @@ class RegistrationFragment : MvpAppCompatFragment(), RegistrationView {
     ): View {
         _binding = FragmentRegistrationBinding.inflate(inflater, container, false)
 
+        binding.next.setOnClickListener {
+            registrationPresenter.saveUser(binding.nameField.getText(), binding.surnameField.getText())
+        }
+
+        binding.include.back.setOnClickListener { registrationPresenter.onBackPressed() }
+
         return binding.root
+    }
+
+    override fun setPhoneNumber(phoneNumber: String) {
+        binding.phoneField.setText(phoneNumber)
     }
 }

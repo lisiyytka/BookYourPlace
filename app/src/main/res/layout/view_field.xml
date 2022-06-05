@@ -10,6 +10,7 @@
         android:id="@+id/field_name"
         style="@style/text_20sp_bold_green"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/indent_20"/>
 

@@ -4,18 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.theartofdev.edmodo.cropper.CropImage
+import com.theartofdev.edmodo.cropper.CropImageView
 import moxy.MvpAppCompatFragment
+import moxy.ktx.moxyPresenter
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import ru.lisiyytka.bookyourplace.databinding.FragmentRegistrationInfoAboutPlaceBinding
-import ru.lisiyytka.bookyourplace.databinding.FragmentRoleSelectionBinding
 import ru.lisiyytka.bookyourplace.di.Scopes
 import ru.lisiyytka.bookyourplace.presentation.presenters.RegistrationInfoAboutPlacePresenter
-import ru.lisiyytka.bookyourplace.presentation.presenters.RoleSelectionPresenter
-import ru.lisiyytka.bookyourplace.presentation.view.registration.RegistrationView
 import toothpick.Toothpick
 
-class RegistrationInfoAboutPlaceFragment :  MvpAppCompatFragment(), RegistrationAboutPlaceView {
+
+class RegistrationInfoAboutPlaceFragment : MvpAppCompatFragment(), RegistrationAboutPlaceView {
     @InjectPresenter
     lateinit var registrationInfoAboutPlacePresenter: RegistrationInfoAboutPlacePresenter
 
@@ -33,6 +34,28 @@ class RegistrationInfoAboutPlaceFragment :  MvpAppCompatFragment(), Registration
     ): View {
         _binding = FragmentRegistrationInfoAboutPlaceBinding.inflate(inflater, container, false)
 
+        binding.choosePhoto.setOnClickListener {
+            CropImage.activity()
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .start(requireActivity())
+        }
+
+        binding.next.setOnClickListener {
+            registrationInfoAboutPlacePresenter.savePlace(
+                binding.nameOfPlaceField.getText(),
+                binding.spinner.selectedItem.toString(),
+                binding.addressField.getText(),
+                binding.phonesField.text.toString(),
+                binding.cuisineField.text.toString(),
+                binding.scheduleField.text.toString(),
+                binding.averageCheckField.getText()
+            )
+            registrationInfoAboutPlacePresenter.onNextClick()
+        }
+
+        binding.include.back.setOnClickListener { registrationInfoAboutPlacePresenter.onBackPressed() }
+
         return binding.root
     }
+
 }

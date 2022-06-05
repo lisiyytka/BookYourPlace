@@ -1,5 +1,6 @@
 package ru.lisiyytka.bookyourplace.presentation.presenters
 
+import android.annotation.SuppressLint
 import android.util.Log
 import com.github.terrakok.cicerone.Router
 import com.google.firebase.FirebaseException
@@ -8,26 +9,31 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import io.reactivex.Observable
 import moxy.InjectViewState
 import moxy.MvpPresenter
 import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens
-import ru.lisiyytka.bookyourplace.presentation.view.accountInfo.AccountInfoView
+import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens.RoleSelection
 import ru.lisiyytka.bookyourplace.presentation.view.login.LoginView
 import ru.lisiyytka.bookyourplace.presentation.view.main.MainActivity
-import ru.lisiyytka.bookyourplace.presentation.view.search.SearchFragment
 import ru.lisiyytka.bookyourplace.utils.Constants.AUTH
+import ru.lisiyytka.bookyourplace.utils.Constants.NODE_USERS
+import ru.lisiyytka.bookyourplace.utils.Constants.REF_DATABASE_ROOT
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @InjectViewState
-class LoginPresenter @Inject constructor(private val router: Router): MvpPresenter<LoginView>() {
+class LoginPresenter @Inject constructor(private val router: Router) : MvpPresenter<LoginView>() {
 
     private var storedVerificationId: String? = ""
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
 
-    override fun onFirstViewAttach(){
+    override fun onFirstViewAttach() {
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
@@ -58,19 +64,49 @@ class LoginPresenter @Inject constructor(private val router: Router): MvpPresent
                 // сохранение верификационного ID и переопределение токена
                 storedVerificationId = verificationId
                 resendToken = token
+                viewState.stopLoadingAndShowFieldOfCode()
             }
         }
     }
 
+    @SuppressLint("CheckResult")
     fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         AUTH.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    router.navigateTo(Screens.Map())
+                    Observable.create<DataSnapshot> { subscriber ->
+                        REF_DATABASE_ROOT.child(NODE_USERS).child(AUTH.currentUser!!.uid).addValueEventListener(
+                            @SuppressLint("CheckResult")
+                            object : ValueEventListener {
+                                override fun onDataChange(snapshot: DataSnapshot) {
+                                    subscriber.onNext(snapshot)
+                                }
+
+                                override fun onCancelled(error: DatabaseError) {
+                                    TODO("Not yet implemented")
+                                }
+                            }
+                        )
+                    }.subscribe({ response ->
+                        onResponse(response)
+                    }, { t -> onFailure(t) })
+
                 } else {
                     Log.w("AUTH", "signInWithCredential:failure", task.exception)
                 }
             }
+    }
+
+    private fun onResponse(response: DataSnapshot) {
+        if (response.exists()) {
+            router.navigateTo(Screens.Map())
+        } else {
+            router.navigateTo(RoleSelection())
+        }
+    }
+
+    private fun onFailure(t: Throwable) {
+        Log.w("Users", "getUserFromFirebaseFail", t)
     }
 
     fun startPhoneNumberVerification(phoneNumber: String, activity: MainActivity) {
@@ -84,7 +120,7 @@ class LoginPresenter @Inject constructor(private val router: Router): MvpPresent
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
 
-    fun registration(){
+    fun registration() {
         router.navigateTo(Screens.Map())
     }
 
@@ -107,3 +143,11 @@ class LoginPresenter @Inject constructor(private val router: Router): MvpPresent
         PhoneAuthProvider.verifyPhoneNumber(optionsBuilder.build())
     }
 }
+//REF_DATABASE_ROOT.child(NODE_USERS).child(AUTH.currentUser!!.uid)
+//.setValue(UserFirebaseEntity(
+//id = AUTH.currentUser!!.uid,
+//phoneNumber = AUTH.currentUser!!.phoneNumber.toString(),
+//name = STRING_EMPTY,
+//surname = STRING_EMPTY,
+//favoritePlaces = PlaceFirebaseEntity()
+//))

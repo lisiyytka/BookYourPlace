@@ -13,6 +13,9 @@ import ru.lisiyytka.bookyourplace.di.Scopes
 import ru.lisiyytka.bookyourplace.presentation.presenters.LoginPresenter
 import ru.lisiyytka.bookyourplace.presentation.view.main.MainActivity
 import ru.lisiyytka.bookyourplace.utils.AppTextWatcher
+import ru.lisiyytka.bookyourplace.utils.hideKeyboard
+import ru.lisiyytka.bookyourplace.utils.startLoading
+import ru.lisiyytka.bookyourplace.utils.stopLoading
 import toothpick.Toothpick
 
 class LoginFragment : MvpAppCompatFragment(), LoginView {
@@ -35,6 +38,9 @@ class LoginFragment : MvpAppCompatFragment(), LoginView {
 
         binding.phoneNumber.addTextChangedListener(AppTextWatcher {
             if (binding.phoneNumber.text.toString().length == 12) {
+                binding.loading.visibility = View.VISIBLE
+                startLoading(binding.progressView)
+                binding.phoneNumber.hideKeyboard()
                 loginPresenter.startPhoneNumberVerification(
                     binding.phoneNumber.text.toString(),
                     activity as MainActivity
@@ -42,15 +48,25 @@ class LoginFragment : MvpAppCompatFragment(), LoginView {
             }
         })
         binding.verifierCode.addTextChangedListener(AppTextWatcher {
-            if (binding.phoneNumber.text.toString().length == 6) {
-                binding.loginBtn.visibility = View.VISIBLE
-                loginPresenter.verifyPhoneNumberWithCode(binding.phoneNumber.text.toString())
+            if (binding.verifierCode.text.toString().length == 6) {
+                loginPresenter.verifyPhoneNumberWithCode(binding.verifierCode.text.toString())
+                binding.verifierCode.hideKeyboard()
             }
         })
+
         return binding.root
     }
 
     override fun showToast(string: String) {
         Toast.makeText(requireContext(), string, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun stopLoadingAndShowFieldOfCode() {
+        binding.loading.visibility = View.GONE
+        stopLoading(binding.progressView)
+        binding.infoAboutCode.visibility = View.VISIBLE
+        binding.verifierCode.visibility = View.VISIBLE
+        binding.resendBtn.visibility = View.VISIBLE
+        binding.phoneNumber.isEnabled = false
     }
 }

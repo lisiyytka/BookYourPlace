@@ -1,13 +1,18 @@
 package ru.lisiyytka.bookyourplace.domain.modelsForFirebase
 
+import ru.lisiyytka.bookyourplace.utils.Constants.STRING_EMPTY
+import javax.xml.xpath.XPathConstants.STRING
+
 data class PlaceFirebaseEntity(
-    val id: String,
-    val phoneNumber: String,
-    val nameOfPlace: String,
-    val address: String,
-    val phoneNumbersOnProfile: String,
-    val cuisine: String,
-    val averageCheck: String,
-    val imgOfPlaceUrl: String,
-    val tables: TableFirebaseEntity
+    val id: String = STRING_EMPTY,
+    val phoneNumber: String = STRING_EMPTY,
+    val nameOfPlace: String = STRING_EMPTY,
+    val typeOfPlace:String = STRING_EMPTY,
+    val address: String = STRING_EMPTY,
+    val phoneNumbersOnProfile: String = STRING_EMPTY,
+    val cuisine: String = STRING_EMPTY,
+    val schedule: String = STRING_EMPTY,
+    val averageCheck: String = STRING_EMPTY,
+    val imgOfPlaceUrl: String = STRING_EMPTY,
+    val tables: TableFirebaseEntity = TableFirebaseEntity()
 )
