@@ -1,10 +1,12 @@
 package ru.lisiyytka.bookyourplace.presentation.view.placeAccount
 
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
@@ -34,14 +36,13 @@ class PlaceAccountFragment : MvpAppCompatFragment(), PlaceAccountView {
     ): View {
         _binding = FragmentPlaceAccountBinding.inflate(inflater, container, false)
 
-        val toolbar = requireActivity().findViewById<FrameLayout>(R.id.bottom_nav_user)
-        val bottomNav = toolbar.findViewById<ConstraintLayout>(R.id.constraint_owner_nav_bot)
-        toolbar.visibility = View.VISIBLE
+        val bottomNavigation = requireActivity().findViewById<ConstraintLayout>(R.id.bottom_nav_owner)
+        bottomNavigation.visibility = View.VISIBLE
 
-        val bookActive = bottomNav.findViewById<FrameLayout>(R.id.book_active)
-        val bookInactive = bottomNav.findViewById<FrameLayout>(R.id.book_inactive)
-        val placeAccountActive = bottomNav.findViewById<FrameLayout>(R.id.place_account_active)
-        val placeAccountInactive = bottomNav.findViewById<FrameLayout>(R.id.place_account_inactive)
+        val bookActive = bottomNavigation.findViewById<FrameLayout>(R.id.book_active)
+        val bookInactive = bottomNavigation.findViewById<ImageButton>(R.id.book_inactive)
+        val placeAccountActive = bottomNavigation.findViewById<FrameLayout>(R.id.place_account_active)
+        val placeAccountInactive = bottomNavigation.findViewById<ImageButton>(R.id.place_account_inactive)
 
         bookActive.visibility = View.VISIBLE
         placeAccountInactive.visibility = View.VISIBLE

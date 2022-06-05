@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageButton
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -62,11 +63,11 @@ class MapFragment : MvpAppCompatFragment(), MapView {
         val bottomNavigation = requireActivity().findViewById<ConstraintLayout>(R.id.bottom_nav_user)
         bottomNavigation.visibility = View.VISIBLE
         val searchButtonActive = bottomNavigation.findViewById<FrameLayout>(R.id.search_active)
-        val searchButtonInactive = bottomNavigation.findViewById<FrameLayout>(R.id.search_inactive)
+        val searchButtonInactive = bottomNavigation.findViewById<ImageButton>(R.id.search_inactive)
         val mapButtonActive = bottomNavigation.findViewById<FrameLayout>(R.id.map_active)
-        val mapButtonInactive = bottomNavigation.findViewById<FrameLayout>(R.id.map_inactive)
+        val mapButtonInactive = bottomNavigation.findViewById<ImageButton>(R.id.map_inactive)
         val accountButtonActive = bottomNavigation.findViewById<FrameLayout>(R.id.account_active)
-        val accountButtonInactive = bottomNavigation.findViewById<FrameLayout>(R.id.account_inactive)
+        val accountButtonInactive = bottomNavigation.findViewById<ImageButton>(R.id.account_inactive)
 
         mapButtonActive.visibility = View.VISIBLE
         searchButtonInactive.visibility = View.VISIBLE
