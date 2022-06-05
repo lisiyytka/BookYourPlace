@@ -32,7 +32,7 @@ object Constants {
     const val NODE_TIME_OF_RESERVE = "TimeOfReserve"
     const val NODE_FAVORITE_PLACES = "FavoritePlaces"
     const val FOLDER_PLACE_IMAGE = "PlaceImage"
-    const val PHOTO_URL = "PhotoUrl"
+    const val PHOTO_URL = "imgOfPlaceUrl"
     //strings
     const val STRING_EMPTY = ""
     //firebase database
