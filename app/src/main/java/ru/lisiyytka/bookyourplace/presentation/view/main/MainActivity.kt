@@ -102,29 +102,11 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-        val changeUserPhotoImage = findViewById<ImageView>(R.id.img)
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE
             && resultCode == RESULT_OK && data != null
         ) {
             val uri = CropImage.getActivityResult(data).uri
-            createPath().putFile(uri).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    createPath().downloadUrl.addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            val photoUrl = it.result.toString()
-                            REF_DATABASE_ROOT.child(NODE_PLACE)
-                                .child(placeUid).child(PHOTO_URL)
-                                .setValue(photoUrl)
-                                .addOnCompleteListener {
-                                    if (it.isSuccessful) {
-                                        changeUserPhotoImage.downloadAndSetImage(photoUrl)
-                                    }
-                                }
-                        }
-                    }
-                }   
-            }
+            createPath().putFile(uri)
         }
     }
 }
