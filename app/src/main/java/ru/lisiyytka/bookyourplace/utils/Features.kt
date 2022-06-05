@@ -28,7 +28,7 @@ class AppTextWatcher(val onSuccess: (Editable?) -> Unit) : TextWatcher {
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 }
 
-val placeUid: String = UUID.randomUUID().toString()
+val placeUid: String = Constants.AUTH.currentUser!!.uid
 
 val tableUid: String = UUID.randomUUID().toString()
 
@@ -57,7 +57,6 @@ fun ImageView.downloadAndSetImage(url: String) {
             .load(url)
             .into(this)
     }
-
 }
 
 fun createPathToFolderOfPlaceImage(): StorageReference {

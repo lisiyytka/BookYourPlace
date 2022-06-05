@@ -4,15 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
-import ru.lisiyytka.bookyourplace.databinding.FragmentSearchBinding
+import ru.lisiyytka.bookyourplace.data.AppValueEventListener
 import ru.lisiyytka.bookyourplace.databinding.FragmentTablesBinding
 import ru.lisiyytka.bookyourplace.di.Scopes
-import ru.lisiyytka.bookyourplace.presentation.presenters.SearchPresenter
+import ru.lisiyytka.bookyourplace.domain.modelsForFirebase.TableFirebaseEntity
+import ru.lisiyytka.bookyourplace.presentation.adapters.TablesAdapter
 import ru.lisiyytka.bookyourplace.presentation.presenters.TablesPresenter
-import ru.lisiyytka.bookyourplace.presentation.view.registration.RegistrationView
+import ru.lisiyytka.bookyourplace.utils.Constants
 import toothpick.Toothpick
 
 class TablesFragment : MvpAppCompatFragment(), TablesView {
@@ -32,7 +34,28 @@ class TablesFragment : MvpAppCompatFragment(), TablesView {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentTablesBinding.inflate(inflater, container, false)
-
+        Constants.REF_DATABASE_ROOT.child(Constants.NODE_PLACE).child(Constants.AUTH.currentUser!!.uid)
+            .child("nameOfPlace")
+            .addValueEventListener(
+                AppValueEventListener {
+                    val result = it.getValue(String::class.java)
+                    binding.nameOfPlace.text = result!!
+                }
+            )
+        initRecyclerView()
         return binding.root
+    }
+
+    private fun initRecyclerView() {
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        Constants.REF_DATABASE_ROOT.child(Constants.NODE_PLACE).child(Constants.AUTH.currentUser!!.uid)
+            .child(Constants.NODE_TABLES)
+            .addValueEventListener(
+                AppValueEventListener {
+                    val listResult =
+                        ArrayList(it.children.map { data -> data.getValue(TableFirebaseEntity::class.java)!! })
+                    binding.recyclerView.adapter = TablesAdapter(listResult)
+                }
+            )
     }
 }

@@ -63,6 +63,7 @@ class RegistrationTableFragment : MvpAppCompatFragment(), RegistrationTableView 
                     REF_DATABASE_ROOT.child(NODE_PLACE).child(placeUid).child(NODE_TABLES).child(tableUid).setValue(imgUrl)
                 }
             }
+            registrationTablePresenter.navigateTo()
         }
 
         return binding.root
