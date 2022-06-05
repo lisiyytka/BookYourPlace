@@ -17,6 +17,7 @@
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/drawable/ic_account_dark_blue.xml" value="0.12037037037037036" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/drawable/ic_arrow_down_green.xml" value="0.125" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/drawable/ic_arrow_up_green.xml" value="0.125" />
+        <entry key="..\:/projects/BookYourPlace/app/src/main/res/drawable/ic_baseline_menu_book_24.xml" value="0.3267543859649123" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/drawable/ic_bookmark_border_dark_blue.xml" value="0.1398148148148148" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/drawable/ic_location_green.xml" value="0.1398148148148148" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/drawable/ic_map_dark_blue.xml" value="0.12037037037037036" />
@@ -33,6 +34,7 @@
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/drawable/selector_occupancy_medium.xml" value="0.11944444444444445" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/layout/activity_main.xml" value="0.21739130434782608" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/layout/bottom_navigation.xml" value="0.24728260869565216" />
+        <entry key="..\:/projects/BookYourPlace/app/src/main/res/layout/bottom_navigation_owner.xml" value="0.3131578947368421" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/layout/bottom_navigation_user.xml" value="0.21" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/layout/fragment_account.xml" value="0.24547101449275363" />
         <entry key="..\:/projects/BookYourPlace/app/src/main/res/layout/fragment_account_info.xml" value="0.24728260869565216" />
@@ -63,11 +65,9 @@
         <entry key="app/src/main/res/drawable/divider_black.xml" value="0.156" />
         <entry key="app/src/main/res/drawable/ic_account_dark_blue.xml" value="0.122" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.122" />
-        <entry key="app/src/main/res/drawable/ic_baseline_menu_book.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/ic_baseline_menu_book_24.xml" value="0.1045" />
         <entry key="app/src/main/res/drawable/line_white.xml" value="0.156" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/bottom_navigation_owner.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/bottom_navigation_owner.xml" value="0.1287037037037037" />
         <entry key="app/src/main/res/layout/bottom_navigation_user.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_account_info.xml" value="0.2947916666666667" />
