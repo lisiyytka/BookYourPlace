@@ -1,6 +1,5 @@
 package ru.lisiyytka.bookyourplace.presentation.view.placeAccount
 
-import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -44,10 +43,14 @@ class PlaceAccountFragment : MvpAppCompatFragment(), PlaceAccountView {
         val placeAccountActive = bottomNavigation.findViewById<FrameLayout>(R.id.place_account_active)
         val placeAccountInactive = bottomNavigation.findViewById<ImageButton>(R.id.place_account_inactive)
 
-        bookActive.visibility = View.VISIBLE
-        placeAccountInactive.visibility = View.VISIBLE
-        bookInactive.visibility = View.GONE
-        placeAccountActive.visibility = View.GONE
+        bookActive.visibility = View.GONE
+        placeAccountInactive.visibility = View.GONE
+        bookInactive.visibility = View.VISIBLE
+        placeAccountActive.visibility = View.VISIBLE
+
+        binding.btnAddTable.setOnClickListener {
+            placeAccountPresenter.onRegisterFragmentClick()
+        }
 
         return binding.root
     }

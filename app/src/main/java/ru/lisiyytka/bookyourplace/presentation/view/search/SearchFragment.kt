@@ -50,7 +50,11 @@ class SearchFragment : MvpAppCompatFragment(), SearchView {
         REF_DATABASE_ROOT.child(NODE_PLACE).addValueEventListener(
             AppValueEventListener{
                 val listResult = ArrayList(it.children.map { data -> data.getValue(PlaceFirebaseEntity::class.java)!!})
-                binding.placeList.adapter = SearchAdapter(listResult)
+                binding.placeList.adapter = SearchAdapter(listResult) { placeId ->
+                    searchPresenter.onListItemClick(
+                        placeId
+                    )
+                }
             }
         )
     }

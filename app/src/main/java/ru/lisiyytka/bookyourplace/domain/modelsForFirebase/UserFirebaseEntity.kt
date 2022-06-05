@@ -7,7 +7,5 @@ data class UserFirebaseEntity(
     val phoneNumber: String = STRING_EMPTY,
     val name: String = STRING_EMPTY,
     val surname: String = STRING_EMPTY,
-    val type: String = STRING_EMPTY,
-    val favoritePlaces: PlaceFirebaseEntity = PlaceFirebaseEntity(),
-    val usersBooking: TimeOfReserveFirebaseEntity = TimeOfReserveFirebaseEntity()
+    val type: String = STRING_EMPTY
 )

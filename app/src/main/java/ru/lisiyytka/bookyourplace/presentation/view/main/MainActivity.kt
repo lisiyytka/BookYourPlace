@@ -18,7 +18,9 @@ import ru.lisiyytka.bookyourplace.R
 import ru.lisiyytka.bookyourplace.cash.CashOwner
 import ru.lisiyytka.bookyourplace.di.Scopes
 import ru.lisiyytka.bookyourplace.presentation.presenters.MainPresenter
-import ru.lisiyytka.bookyourplace.utils.createPath
+import ru.lisiyytka.bookyourplace.utils.createPathToFolderOfPlaceImage
+import ru.lisiyytka.bookyourplace.utils.createPathToFolderOfTableImage
+import ru.lisiyytka.bookyourplace.utils.isRegister
 import toothpick.Toothpick
 import javax.inject.Inject
 
@@ -119,13 +121,22 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        val changeUserPhotoImage = findViewById<ImageView>(R.id.img)
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE
             && resultCode == RESULT_OK && data != null
         ) {
-            val uri = CropImage.getActivityResult(data).uri
-            createPath().putFile(uri)
-            changeUserPhotoImage.setImageURI(uri)
+            if (isRegister) {
+                val changeUserPhotoImageRegister = findViewById<ImageView>(R.id.img)
+                val uri = CropImage.getActivityResult(data).uri
+
+                createPathToFolderOfPlaceImage().putFile(uri)
+                changeUserPhotoImageRegister.setImageURI(uri)
+            } else {
+                val changeUserPhotoImageRegister = findViewById<ImageView>(R.id.img_table_reg)
+                val uri = CropImage.getActivityResult(data).uri
+                createPathToFolderOfTableImage().putFile(uri)
+                changeUserPhotoImageRegister.setImageURI(uri)
+            }
+
         }
     }
 }

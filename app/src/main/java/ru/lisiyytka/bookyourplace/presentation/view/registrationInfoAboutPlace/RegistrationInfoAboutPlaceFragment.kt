@@ -39,6 +39,7 @@ class RegistrationInfoAboutPlaceFragment : MvpAppCompatFragment(), RegistrationA
         _binding = FragmentRegistrationInfoAboutPlaceBinding.inflate(inflater, container, false)
 
         binding.choosePhoto.setOnClickListener {
+
             CropImage.activity()
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .start(requireActivity())

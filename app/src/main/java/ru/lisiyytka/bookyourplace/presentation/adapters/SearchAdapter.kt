@@ -10,7 +10,7 @@ import ru.lisiyytka.bookyourplace.R
 import ru.lisiyytka.bookyourplace.domain.modelsForFirebase.PlaceFirebaseEntity
 import ru.lisiyytka.bookyourplace.utils.downloadAndSetImage
 
-class SearchAdapter(private val places: ArrayList<PlaceFirebaseEntity>) :
+class SearchAdapter(private val places: ArrayList<PlaceFirebaseEntity>, val onItemClicked: (placeId: String) -> Unit) :
     RecyclerView.Adapter<SearchAdapter.SingleChatHolder>() {
 
     class SingleChatHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -34,6 +34,9 @@ class SearchAdapter(private val places: ArrayList<PlaceFirebaseEntity>) :
         holder.phoneField.text = places[position].phoneNumbersOnProfile
         holder.averageCheck.text = places[position].averageCheck
         holder.cardBg.downloadAndSetImage(places[position].imgOfPlaceUrl)
+        holder.itemView.setOnClickListener {
+            onItemClicked(places[position].id)
+        }
     }
 
     override fun getItemCount(): Int = places.size

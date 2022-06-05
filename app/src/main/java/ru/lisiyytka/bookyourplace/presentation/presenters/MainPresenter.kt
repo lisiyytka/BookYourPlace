@@ -7,6 +7,7 @@ import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens
 import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens.Account
 import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens.Login
 import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens.Map
+import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens.PlaceAccount
 import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens.Search
 import ru.lisiyytka.bookyourplace.presentation.view.main.MainView
 import javax.inject.Inject
@@ -31,7 +32,7 @@ class MainPresenter @Inject constructor(private val router: Router) : MvpPresent
     }
 
     fun onBookClick() {
-        TODO("Not yet implemented")
+        router.navigateTo(PlaceAccount())
     }
 
     fun onPlaceAccountClick() {

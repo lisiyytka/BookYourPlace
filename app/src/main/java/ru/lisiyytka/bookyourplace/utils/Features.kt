@@ -6,9 +6,13 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import com.github.rahatarmanahmed.cpv.CircularProgressView
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
+import ru.lisiyytka.bookyourplace.R
 import ru.lisiyytka.bookyourplace.utils.Constants.FOLDER_PLACE_IMAGE
 import ru.lisiyytka.bookyourplace.utils.Constants.REF_STORAGE_ROOT
 import java.util.*
@@ -24,7 +28,11 @@ class AppTextWatcher(val onSuccess: (Editable?) -> Unit) : TextWatcher {
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 }
 
- val placeUid: String = UUID.randomUUID().toString()
+val placeUid: String = UUID.randomUUID().toString()
+
+val tableUid: String = UUID.randomUUID().toString()
+
+var isRegister: Boolean = true
 
 fun startLoading(loading: CircularProgressView) {
     loading.startAnimation()
@@ -42,13 +50,23 @@ fun View.hideKeyboard() {
 }
 
 fun ImageView.downloadAndSetImage(url: String) {
+    if (url.isEmpty()) {
+        Picasso.get().load(R.drawable.group_43).into(this)
+    } else{
         Picasso.get()
             .load(url)
             .into(this)
+    }
+
 }
 
-fun createPath(): StorageReference {
+fun createPathToFolderOfPlaceImage(): StorageReference {
     return REF_STORAGE_ROOT
         .child(FOLDER_PLACE_IMAGE)
         .child(placeUid)
+}
+fun createPathToFolderOfTableImage(): StorageReference {
+    return REF_STORAGE_ROOT
+        .child(FOLDER_PLACE_IMAGE)
+        .child(tableUid)
 }

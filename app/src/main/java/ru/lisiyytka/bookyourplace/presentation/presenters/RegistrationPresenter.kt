@@ -34,9 +34,7 @@ class RegistrationPresenter @Inject constructor(
                 phoneNumber = AUTH.currentUser!!.phoneNumber.toString(),
                 name = name,
                 surname = surname,
-                type = ROLE_USER,
-                favoritePlaces = PlaceFirebaseEntity(),
-                usersBooking = TimeOfReserveFirebaseEntity()
+                type = ROLE_USER
             )
         )
         cashOwner.lastFragmentCash = "user"

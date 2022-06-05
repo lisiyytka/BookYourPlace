@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="210dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/example1"/>
+            android:src="@drawable/group_43"/>
 
         <ImageView
             android:layout_width="match_parent"
