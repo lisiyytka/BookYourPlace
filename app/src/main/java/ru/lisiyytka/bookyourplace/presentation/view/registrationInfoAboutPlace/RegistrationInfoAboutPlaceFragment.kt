@@ -13,6 +13,10 @@ import moxy.presenter.ProvidePresenter
 import ru.lisiyytka.bookyourplace.databinding.FragmentRegistrationInfoAboutPlaceBinding
 import ru.lisiyytka.bookyourplace.di.Scopes
 import ru.lisiyytka.bookyourplace.presentation.presenters.RegistrationInfoAboutPlacePresenter
+import ru.lisiyytka.bookyourplace.utils.Constants.NODE_PLACE
+import ru.lisiyytka.bookyourplace.utils.Constants.PHOTO_URL
+import ru.lisiyytka.bookyourplace.utils.Constants.REF_DATABASE_ROOT
+import ru.lisiyytka.bookyourplace.utils.placeUid
 import toothpick.Toothpick
 
 

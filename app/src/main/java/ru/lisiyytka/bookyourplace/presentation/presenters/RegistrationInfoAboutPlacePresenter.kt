@@ -4,6 +4,7 @@ import com.github.terrakok.cicerone.Router
 import moxy.InjectViewState
 import moxy.MvpPresenter
 import ru.lisiyytka.bookyourplace.cash.CashOwner
+import ru.lisiyytka.bookyourplace.data.AppValueEventListener
 import ru.lisiyytka.bookyourplace.domain.modelsForFirebase.PlaceFirebaseEntity
 import ru.lisiyytka.bookyourplace.domain.modelsForFirebase.TableFirebaseEntity
 import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens
@@ -11,6 +12,7 @@ import ru.lisiyytka.bookyourplace.presentation.view.registrationInfoAboutPlace.R
 import ru.lisiyytka.bookyourplace.utils.Constants.AUTH
 import ru.lisiyytka.bookyourplace.utils.Constants.FOLDER_PLACE_IMAGE
 import ru.lisiyytka.bookyourplace.utils.Constants.NODE_PLACE
+import ru.lisiyytka.bookyourplace.utils.Constants.PHOTO_URL
 import ru.lisiyytka.bookyourplace.utils.Constants.REF_DATABASE_ROOT
 import ru.lisiyytka.bookyourplace.utils.Constants.REF_STORAGE_ROOT
 import ru.lisiyytka.bookyourplace.utils.placeUid
@@ -39,20 +41,25 @@ class RegistrationInfoAboutPlacePresenter @Inject constructor(
         schedule: String,
         averageCheck: String
     ) {
-        REF_DATABASE_ROOT.child(NODE_PLACE).child(placeUid).setValue(
-            PlaceFirebaseEntity(
-                id = placeUid,
-                phoneNumber = AUTH.currentUser!!.phoneNumber.toString(),
-                nameOfPlace = namePlace,
-                typeOfPlace = typeOfPlace,
-                address = address,
-                phoneNumbersOnProfile = phonesOfPlace,
-                cuisine = cuisine,
-                schedule = schedule,
-                averageCheck = averageCheck,
-                tables = TableFirebaseEntity()
-            )
-        )
+        REF_DATABASE_ROOT.child(NODE_PLACE).child(placeUid).child(PHOTO_URL)
+            .addValueEventListener(AppValueEventListener {
+                val imgUrl = it.getValue(String::class.java)
+                REF_DATABASE_ROOT.child(NODE_PLACE).child(placeUid).setValue(
+                    PlaceFirebaseEntity(
+                        id = placeUid,
+                        phoneNumber = AUTH.currentUser!!.phoneNumber.toString(),
+                        nameOfPlace = namePlace,
+                        typeOfPlace = typeOfPlace,
+                        address = address,
+                        phoneNumbersOnProfile = phonesOfPlace,
+                        cuisine = cuisine,
+                        schedule = schedule,
+                        averageCheck = averageCheck,
+                        tables = TableFirebaseEntity(),
+                        imgOfPlaceUrl = imgUrl!!
+                    )
+                )
+            })
     }
 
     fun onNextClick() {

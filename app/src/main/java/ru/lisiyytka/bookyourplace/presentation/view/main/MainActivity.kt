@@ -123,7 +123,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                                 }
                         }
                     }
-                }
+                }   
             }
         }
     }
