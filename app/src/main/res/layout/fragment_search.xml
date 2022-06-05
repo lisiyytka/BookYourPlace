@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingBottom="50dp"
     android:background="@color/dark_blue">
@@ -27,6 +28,7 @@
             android:textCursorDrawable="@drawable/cursor_white" />
 
         <ImageView
+            android:id="@+id/search_btn"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="center_vertical|end"
@@ -69,14 +71,48 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/place_list"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/indent_10"
-        android:layout_marginTop="@dimen/indent_10"
-        android:orientation="vertical"
-        android:scrollbars="vertical"
-        tools:listitem="@layout/item_place_list"/>
+        android:layout_height="wrap_content">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            android:id="@+id/progress_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:visibility="gone"
+            app:cpv_animAutostart="true"
+            app:cpv_color="@color/green"
+            app:cpv_indeterminate="true"
+            app:cpv_thickness="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/message"
+            style="@style/text_20sp_medium_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/indent_25"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="К сожалению, по вашему запросу мы не смогли найти заведений"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/place_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/indent_10"
+            android:layout_marginTop="@dimen/indent_10"
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/item_place_list"/>
+    </FrameLayout>
+
+
 
 </LinearLayout>

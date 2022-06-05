@@ -52,6 +52,7 @@
 
             <Spinner
                 android:id="@+id/spinner"
+                style="@style/text_20sp_regular_white"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:entries="@array/places"
@@ -94,8 +95,8 @@
             android:hint="+7 (343) 999-99-99 +7 (343) 999-99-99"
             android:minLines="2"
             android:paddingStart="@dimen/indent_5"
-            android:paddingEnd="145dp"
-            android:textColorHint="@color/white"
+            android:paddingEnd="160dp"
+            android:textColorHint="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text1" />
@@ -124,7 +125,7 @@
             android:minLines="3"
             android:paddingStart="@dimen/indent_5"
             android:paddingEnd="150dp"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text2" />
@@ -153,7 +154,7 @@
             android:minLines="3"
             android:paddingStart="@dimen/indent_5"
             android:paddingEnd="150dp"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text4" />
