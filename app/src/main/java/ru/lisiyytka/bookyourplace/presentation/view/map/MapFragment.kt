@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -43,9 +45,6 @@ class MapFragment : MvpAppCompatFragment(), MapView {
     ): View {
         _binding = FragmentMapBinding.inflate(inflater, container, false)
 
-        val bottomNavigation: ConstraintLayout = requireActivity().findViewById(R.id.bottom_nav)
-        bottomNavigation.visibility = View.VISIBLE
-
         map = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         map.onCreate(savedInstanceState)
         map.getMapAsync(OnMapReadyCallback {
@@ -56,6 +55,25 @@ class MapFragment : MvpAppCompatFragment(), MapView {
             )
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ekbBounds.center, 11.5f))
         })
+
+//        val toolbar = requireActivity().findViewById<FrameLayout>(R.id.bottom_nav_user)
+//        val bottomNavigation = toolbar.findViewById<ConstraintLayout>(R.id.btm_nav_user_const)
+//        toolbar.visibility = View.VISIBLE
+        val bottomNavigation = requireActivity().findViewById<ConstraintLayout>(R.id.bottom_nav_user)
+        bottomNavigation.visibility = View.VISIBLE
+        val searchButtonActive = bottomNavigation.findViewById<FrameLayout>(R.id.search_active)
+        val searchButtonInactive = bottomNavigation.findViewById<FrameLayout>(R.id.search_inactive)
+        val mapButtonActive = bottomNavigation.findViewById<FrameLayout>(R.id.map_active)
+        val mapButtonInactive = bottomNavigation.findViewById<FrameLayout>(R.id.map_inactive)
+        val accountButtonActive = bottomNavigation.findViewById<FrameLayout>(R.id.account_active)
+        val accountButtonInactive = bottomNavigation.findViewById<FrameLayout>(R.id.account_inactive)
+
+        mapButtonActive.visibility = View.VISIBLE
+        searchButtonInactive.visibility = View.VISIBLE
+        accountButtonInactive.visibility = View.VISIBLE
+        mapButtonInactive.visibility = View.GONE
+        searchButtonActive.visibility = View.GONE
+        accountButtonActive.visibility = View.GONE
 
         return binding.root
     }

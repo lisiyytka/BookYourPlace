@@ -15,13 +15,17 @@ import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
 import moxy.InjectViewState
 import moxy.MvpPresenter
+import ru.lisiyytka.bookyourplace.data.AppValueEventListener
 import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens
 import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens.RoleSelection
+import ru.lisiyytka.bookyourplace.presentation.cicerone.Screens.Search
 import ru.lisiyytka.bookyourplace.presentation.view.login.LoginView
 import ru.lisiyytka.bookyourplace.presentation.view.main.MainActivity
 import ru.lisiyytka.bookyourplace.utils.Constants.AUTH
 import ru.lisiyytka.bookyourplace.utils.Constants.NODE_USERS
 import ru.lisiyytka.bookyourplace.utils.Constants.REF_DATABASE_ROOT
+import ru.lisiyytka.bookyourplace.utils.Constants.ROLE_OWNER
+import ru.lisiyytka.bookyourplace.utils.Constants.ROLE_USER
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -99,7 +103,18 @@ class LoginPresenter @Inject constructor(private val router: Router) : MvpPresen
 
     private fun onResponse(response: DataSnapshot) {
         if (response.exists()) {
-            router.navigateTo(Screens.Map())
+            REF_DATABASE_ROOT.child(NODE_USERS).child(AUTH.currentUser!!.uid)
+                .child("type").addValueEventListener(
+                    AppValueEventListener{
+                        val type = it.getValue(String::class.java)
+                        if (type == ROLE_USER) {
+                            router.navigateTo(Screens.Map())
+                        } else {
+                            router.navigateTo(Screens.PlaceAccount())
+                        }
+                    }
+                )
+
         } else {
             router.navigateTo(RoleSelection())
         }

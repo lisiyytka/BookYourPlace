@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DatabaseReference
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
+import ru.lisiyytka.bookyourplace.R
 import ru.lisiyytka.bookyourplace.data.AppValueEventListener
 import ru.lisiyytka.bookyourplace.databinding.FragmentSearchBinding
 import ru.lisiyytka.bookyourplace.di.Scopes
@@ -43,10 +46,12 @@ class SearchFragment : MvpAppCompatFragment(), SearchView {
     ): View {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         initRecyclerView()
+
         return binding.root
     }
 
     private fun initRecyclerView() {
+
         singleChatRecyclerView.layoutManager = LinearLayoutManager(context)
         mAdapter = SearchAdapter()
         singleChatRecyclerView.adapter = mAdapter

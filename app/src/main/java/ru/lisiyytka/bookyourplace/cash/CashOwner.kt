@@ -4,5 +4,5 @@ import toothpick.InjectConstructor
 
 @InjectConstructor
 class CashOwner {
-    val lastFragmentCash = ""
+    var lastFragmentCash = ""
 }

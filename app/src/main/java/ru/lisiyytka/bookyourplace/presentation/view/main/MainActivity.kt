@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.theartofdev.edmodo.cropper.CropImage
@@ -14,6 +15,7 @@ import moxy.MvpAppCompatActivity
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import ru.lisiyytka.bookyourplace.R
+import ru.lisiyytka.bookyourplace.cash.CashOwner
 import ru.lisiyytka.bookyourplace.di.Scopes
 import ru.lisiyytka.bookyourplace.presentation.presenters.MainPresenter
 import ru.lisiyytka.bookyourplace.utils.createPath
@@ -32,6 +34,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     @Inject
     lateinit var navigatorHolder: NavigatorHolder
 
+    @Inject
+    lateinit var cashOwner: CashOwner
+
     private val navigator = AppNavigator(this, R.id.container)
 
     @SuppressLint("CutPasteId")
@@ -42,19 +47,17 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         mainActivityPresenter.startApp()
 
+        val bottomNavigationUser: ConstraintLayout = findViewById(R.id.bottom_nav_user)
+        bottomNavigationUser.visibility = View.GONE
+        val bottomNavigationOwner: ConstraintLayout = findViewById(R.id.bottom_nav_owner)
+        bottomNavigationOwner.visibility = View.GONE
+
         val mapButtonInactive = findViewById<ImageButton>(R.id.map_inactive)
         val mapButtonActive = findViewById<FrameLayout>(R.id.map_active)
         val searchButtonInactive = findViewById<ImageButton>(R.id.search_inactive)
         val searchButtonActive = findViewById<FrameLayout>(R.id.search_active)
         val accountButtonInactive = findViewById<ImageButton>(R.id.account_inactive)
         val accountButtonActive = findViewById<FrameLayout>(R.id.account_active)
-
-        mapButtonActive.visibility = View.VISIBLE
-        searchButtonInactive.visibility = View.VISIBLE
-        accountButtonInactive.visibility = View.VISIBLE
-        mapButtonInactive.visibility = View.GONE
-        searchButtonActive.visibility = View.GONE
-        accountButtonActive.visibility = View.GONE
 
         mapButtonInactive.setOnClickListener {
             mainActivityPresenter.onMapButtonClick()
@@ -84,6 +87,27 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             accountButtonInactive.visibility = View.GONE
             mapButtonInactive.visibility = View.VISIBLE
             searchButtonInactive.visibility = View.VISIBLE
+        }
+
+        val bookInactive = findViewById<ImageButton>(R.id.book_inactive)
+        val bookActive = findViewById<FrameLayout>(R.id.book_active)
+        val placeAccountInactive = findViewById<ImageButton>(R.id.place_account_inactive)
+        val placeAccountActive = findViewById<FrameLayout>(R.id.place_account_active)
+
+        bookInactive.setOnClickListener {
+            mainActivityPresenter.onBookClick()
+            bookActive.visibility = View.VISIBLE
+            placeAccountInactive.visibility = View.VISIBLE
+            bookInactive.visibility = View.GONE
+            placeAccountActive.visibility = View.GONE
+        }
+
+        placeAccountInactive.setOnClickListener {
+            mainActivityPresenter.onPlaceAccountClick()
+            bookActive.visibility = View.GONE
+            placeAccountInactive.visibility = View.GONE
+            bookInactive.visibility = View.VISIBLE
+            placeAccountActive.visibility = View.VISIBLE
         }
     }
 

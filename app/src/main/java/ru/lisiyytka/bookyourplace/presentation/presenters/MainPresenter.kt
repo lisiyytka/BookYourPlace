@@ -29,4 +29,12 @@ class MainPresenter @Inject constructor(private val router: Router) : MvpPresent
     fun onAccountButtonClick() {
         router.navigateTo(Account())
     }
+
+    fun onBookClick() {
+        TODO("Not yet implemented")
+    }
+
+    fun onPlaceAccountClick() {
+        TODO("Not yet implemented")
+    }
 }

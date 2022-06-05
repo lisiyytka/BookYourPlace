@@ -40,5 +40,7 @@ object Constants {
     val REF_DATABASE_ROOT: DatabaseReference =
         FirebaseDatabase.getInstance("https://bookyourplace-b2532-default-rtdb.europe-west1.firebasedatabase.app/").reference
     val REF_STORAGE_ROOT: StorageReference = FirebaseStorage.getInstance("gs://bookyourplace-b2532.appspot.com").reference
-
+    //role
+    const val ROLE_USER = "user"
+    const val ROLE_OWNER = "owner"
 }
