@@ -16,14 +16,7 @@ import moxy.presenter.ProvidePresenter
 import ru.lisiyytka.bookyourplace.R
 import ru.lisiyytka.bookyourplace.di.Scopes
 import ru.lisiyytka.bookyourplace.presentation.presenters.MainPresenter
-import ru.lisiyytka.bookyourplace.utils.Constants.AUTH
-import ru.lisiyytka.bookyourplace.utils.Constants.NODE_PLACE
-import ru.lisiyytka.bookyourplace.utils.Constants.NODE_USERS
-import ru.lisiyytka.bookyourplace.utils.Constants.PHOTO_URL
-import ru.lisiyytka.bookyourplace.utils.Constants.REF_DATABASE_ROOT
 import ru.lisiyytka.bookyourplace.utils.createPath
-import ru.lisiyytka.bookyourplace.utils.downloadAndSetImage
-import ru.lisiyytka.bookyourplace.utils.placeUid
 import toothpick.Toothpick
 import javax.inject.Inject
 
@@ -102,11 +95,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        val changeUserPhotoImage = findViewById<ImageView>(R.id.img)
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE
             && resultCode == RESULT_OK && data != null
         ) {
             val uri = CropImage.getActivityResult(data).uri
             createPath().putFile(uri)
+            changeUserPhotoImage.setImageURI(uri)
         }
     }
 }
