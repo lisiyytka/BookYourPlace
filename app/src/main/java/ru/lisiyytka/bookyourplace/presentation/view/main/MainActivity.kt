@@ -3,10 +3,12 @@ package ru.lisiyytka.bookyourplace.presentation.view.main
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.androidx.AppNavigator
@@ -134,6 +136,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 val changeUserPhotoImageRegister = findViewById<ImageView>(R.id.img_table_reg)
                 val uri = CropImage.getActivityResult(data).uri
                 createPathToFolderOfTableImage().putFile(uri)
+                Log.d("IMG", uri.toString())
                 changeUserPhotoImageRegister.setImageURI(uri)
             }
 

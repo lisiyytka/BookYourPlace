@@ -17,13 +17,10 @@ import ru.lisiyytka.bookyourplace.domain.modelsForFirebase.TableFirebaseEntity
 import ru.lisiyytka.bookyourplace.presentation.presenters.PlacePresenter
 import ru.lisiyytka.bookyourplace.presentation.presenters.RegistrationTablePresenter
 import ru.lisiyytka.bookyourplace.presentation.view.place.PlaceView
-import ru.lisiyytka.bookyourplace.utils.Constants
+import ru.lisiyytka.bookyourplace.utils.*
 import ru.lisiyytka.bookyourplace.utils.Constants.NODE_PLACE
 import ru.lisiyytka.bookyourplace.utils.Constants.NODE_TABLES
 import ru.lisiyytka.bookyourplace.utils.Constants.REF_DATABASE_ROOT
-import ru.lisiyytka.bookyourplace.utils.createPathToFolderOfTableImage
-import ru.lisiyytka.bookyourplace.utils.placeUid
-import ru.lisiyytka.bookyourplace.utils.tableUid
 import toothpick.Toothpick
 
 class RegistrationTableFragment : MvpAppCompatFragment(), RegistrationTableView {
@@ -47,6 +44,7 @@ class RegistrationTableFragment : MvpAppCompatFragment(), RegistrationTableView 
         _binding = FragmentRegisterTableBinding.inflate(inflater, container, false)
 
         binding.choosePhoto.setOnClickListener {
+            isRegister = false
             CropImage.activity()
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .start(requireActivity())
