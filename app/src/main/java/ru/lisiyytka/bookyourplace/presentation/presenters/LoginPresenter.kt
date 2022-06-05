@@ -120,10 +120,6 @@ class LoginPresenter @Inject constructor(private val router: Router) : MvpPresen
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
 
-    fun registration() {
-        router.navigateTo(Screens.Map())
-    }
-
     fun verifyPhoneNumberWithCode(code: String) {
         val credential = PhoneAuthProvider.getCredential(storedVerificationId!!, code)
         signInWithPhoneAuthCredential(credential)

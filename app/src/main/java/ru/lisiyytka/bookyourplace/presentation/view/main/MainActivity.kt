@@ -17,11 +17,13 @@ import ru.lisiyytka.bookyourplace.R
 import ru.lisiyytka.bookyourplace.di.Scopes
 import ru.lisiyytka.bookyourplace.presentation.presenters.MainPresenter
 import ru.lisiyytka.bookyourplace.utils.Constants.AUTH
+import ru.lisiyytka.bookyourplace.utils.Constants.NODE_PLACE
 import ru.lisiyytka.bookyourplace.utils.Constants.NODE_USERS
 import ru.lisiyytka.bookyourplace.utils.Constants.PHOTO_URL
 import ru.lisiyytka.bookyourplace.utils.Constants.REF_DATABASE_ROOT
 import ru.lisiyytka.bookyourplace.utils.createPath
 import ru.lisiyytka.bookyourplace.utils.downloadAndSetImage
+import ru.lisiyytka.bookyourplace.utils.placeUid
 import toothpick.Toothpick
 import javax.inject.Inject
 
@@ -111,8 +113,8 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                     createPath().downloadUrl.addOnCompleteListener {
                         if (it.isSuccessful) {
                             val photoUrl = it.result.toString()
-                            REF_DATABASE_ROOT.child(NODE_USERS)
-                                .child(AUTH.currentUser!!.uid).child(PHOTO_URL)
+                            REF_DATABASE_ROOT.child(NODE_PLACE)
+                                .child(placeUid).child(PHOTO_URL)
                                 .setValue(photoUrl)
                                 .addOnCompleteListener {
                                     if (it.isSuccessful) {
