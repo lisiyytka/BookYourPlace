@@ -42,20 +42,9 @@ fun View.hideKeyboard() {
 }
 
 fun ImageView.downloadAndSetImage(url: String) {
-    if (url == "") {
-        val path = REF_STORAGE_ROOT.child(FOLDER_PLACE_IMAGE)
-            .child("kisspng-refilmery-computer-icons-avatar-user-profile-avatar-vector-5ad7bb8f92b678_25771326152408769561009.png")
-        path.downloadUrl.addOnCompleteListener {
-            val photoUrl = it.result.toString()
-            Picasso.get()
-                .load(photoUrl)
-                .into(this)
-        }
-    } else {
         Picasso.get()
             .load(url)
             .into(this)
-    }
 }
 
 fun createPath(): StorageReference {
