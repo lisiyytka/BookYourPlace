@@ -20,7 +20,7 @@ class TablesAdapter(private val tables: ArrayList<TableFirebaseEntity>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_place_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_tables_list, parent, false)
         return TableHolder(view)
     }
 

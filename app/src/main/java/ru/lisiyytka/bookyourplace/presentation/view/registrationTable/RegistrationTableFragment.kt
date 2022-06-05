@@ -56,11 +56,11 @@ class RegistrationTableFragment : MvpAppCompatFragment(), RegistrationTableView 
                 description = binding.description.getText(),
                 numbersOfPersonAtTheTable = binding.spinner.selectedItem.toString()
             )
-            REF_DATABASE_ROOT.child(NODE_PLACE).child(placeUid).child(NODE_TABLES).child(tableUid).setValue(table)
+            REF_DATABASE_ROOT.child(NODE_PLACE).child(placeUid).child(NODE_TABLES).child(table.nameOfTable).setValue(table)
             createPathToFolderOfTableImage().downloadUrl.addOnCompleteListener {
                 if (it.isSuccessful) {
                     val imgUrl = it.result.toString()
-                    REF_DATABASE_ROOT.child(NODE_PLACE).child(placeUid).child(NODE_TABLES).child(tableUid).setValue(imgUrl)
+                    REF_DATABASE_ROOT.child(NODE_PLACE).child(placeUid).child(NODE_TABLES).child(table.nameOfTable).child("imgOfTableUrl").setValue(imgUrl)
                 }
             }
             registrationTablePresenter.navigateTo()

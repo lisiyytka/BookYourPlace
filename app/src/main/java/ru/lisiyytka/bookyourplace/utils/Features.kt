@@ -13,6 +13,7 @@ import com.github.rahatarmanahmed.cpv.CircularProgressView
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 import ru.lisiyytka.bookyourplace.R
+import ru.lisiyytka.bookyourplace.utils.Constants.AUTH
 import ru.lisiyytka.bookyourplace.utils.Constants.FOLDER_PLACE_IMAGE
 import ru.lisiyytka.bookyourplace.utils.Constants.REF_STORAGE_ROOT
 import java.util.*
@@ -28,7 +29,7 @@ class AppTextWatcher(val onSuccess: (Editable?) -> Unit) : TextWatcher {
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 }
 
-val placeUid: String = Constants.AUTH.currentUser!!.uid
+val placeUid: String = AUTH.currentUser!!.uid
 
 val tableUid: String = UUID.randomUUID().toString()
 

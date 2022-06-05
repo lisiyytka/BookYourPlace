@@ -43,9 +43,9 @@ class RegistrationInfoAboutPlacePresenter @Inject constructor(
         schedule: String,
         averageCheck: String
     ) {
-        REF_DATABASE_ROOT.child(NODE_PLACE).child(placeUid).setValue(
+        REF_DATABASE_ROOT.child(NODE_PLACE).child(AUTH.currentUser!!.uid).setValue(
             PlaceFirebaseEntity(
-                id = placeUid,
+                id = AUTH.currentUser!!.uid,
                 phoneNumber = AUTH.currentUser!!.phoneNumber.toString(),
                 nameOfPlace = namePlace,
                 typeOfPlace = typeOfPlace,
